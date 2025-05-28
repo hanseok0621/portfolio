@@ -1,5 +1,3 @@
-// src/components/Home.tsx
-
 import { Button } from "@/components/ui/button";
 import { Github, Mail, Code, ArrowDown } from 'lucide-react';
 import { toast } from "sonner";
