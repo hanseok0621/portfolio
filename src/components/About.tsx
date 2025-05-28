@@ -8,6 +8,8 @@ const skills = [
   "Javascript",
   "TypeScript",
   "React",
+  "Node.js",
+  "Express",
   "C",
   "C++",
   "C#",

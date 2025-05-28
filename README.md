@@ -1,54 +1,40 @@
-# React + TypeScript + Vite
+# 포트폴리오
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React와 TypeScript 기반의 포트폴리오입니다.
 
-Currently, two official plugins are available:
+<img src="https://khsportfolio.vercel.app//image/Portfolio.jpg?height=400&width=600" width="600">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+배포사이트: https://khsportfolio.vercel.app
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📌 주요 기능
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Navbar**
+- **Home**: 자기소개 및 GitHub/이메일 아이콘 제공
+- **About Me**: 개발 철학과 기술 스택 소개
+- **Projects**: 수행한 프로젝트 목록 및 상세 설명
+- **Footer**
+
+## 🛠️ 사용 기술
+
+- **React** & **TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **shadcn/ui**
+
+## 📂 폴더 구조
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+src/
+├── components/
+│ ├── Navbar.tsx
+│ ├── Home.tsx
+│ ├── About.tsx
+│ ├── Projects.tsx
+│ ├── Footer.tsx
+│ └── ui/ # shadcn 컴포넌트
+├── App.tsx
+├── main.tsx
+├── App.css
+└── index.css
 ```

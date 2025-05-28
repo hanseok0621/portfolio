@@ -6,7 +6,7 @@ const projects = [
     title: "데이터 전처리 도구",
     subtitle: "Data Processing Tool",
     description:
-      "C# WinForms 기반 데이터 전처리 GUI 툴입니다. 결측치 처리, 이상치 제거, 스케일링, 인코딩, 데이터 분할 기능을 포함하여 복잡한 데이터 작업을 직관적인 인터페이스로 단순화했습니다.",
+      "C# WinForms 기반 데이터 전처리 GUI 툴입니다. 결측치 처리, 이상치 제거, 스케일링, 인코딩, 데이터 분할 기능을 포함하여 복잡한 데이터 작업을 단순화했습니다.",
     tech: ["C#", "WinForms"],
     image: "/image/DataProcessingTool.jpg?height=400&width=600",
     codeUrl: "https://github.com/hanseok0621/DataPreprocessingTool",
@@ -15,7 +15,7 @@ const projects = [
     title: "웹 기반 갤러그 게임",
     subtitle: "Canvas Game Development",
     description:
-      "Canvas와 JavaScript를 활용한 잠수함 테마의 슈팅 게임입니다. 다양한 적, 보스전, 사운드, UI 구성을 통해 클래식한 게임의 매력을 현대적인 웹 기술로 재현했습니다.",
+      "Canvas와 JavaScript를 활용한 잠수함 테마의 슈팅 게임입니다. 다양한 적, 보스전, 사운드, UI 구성을 통해 클래식한 게임을 웹 기술로 재현했습니다.",
     tech: ["JavaScript", "HTML5", "Canvas"],
     image: "/image/DeepSeaInvaders.jpg?height=400&width=600",
     projectUrl: "https://hanseok0621.github.io/DeepSeaInvaders/",
@@ -45,7 +45,7 @@ const projects = [
     title: "두더지 게임 애플리케이션",
     subtitle: "Mobile Game Development",
     description:
-      "App Inventor를 활용하여 제작한 안드로이드 게임입니다. 직관적인 게임플레이와 사용자 경험에 중점을 두어 개발했습니다.",
+      "App Inventor를 활용하여 제작한 안드로이드 게임입니다. 게임플레이와 사용자 경험에 중점을 두어 개발했습니다.",
     tech: ["App Inventor"],
     image: "/image/MoleGame.jpg?height=400&width=600",
     projectUrl: "https://drive.google.com/file/d/1op5BIuE5MJT-_fJEFNyU7bdXSz4Ky6-p/view?usp=drive_link",
@@ -55,7 +55,7 @@ const projects = [
     title: "파이썬 데이터 시각화",
     subtitle: "Data Visualization",
     description:
-      "Python을 활용한 제조 시스템 데이터 시각화 프로젝트입니다. 복잡한 데이터를 직관적인 차트와 그래프로 변환하여 인사이트를 도출할 수 있도록 구현했습니다.",
+      "Python을 활용한 제조 시스템 데이터 시각화 프로젝트입니다. 데이터를 직관적인 차트와 그래프로 변환하여 인사이트를 도출할 수 있도록 구현했습니다.",
     tech: ["Python", "Data Analysis"],
     image: "/image/Python.jpg?height=400&width=600",
     codeUrl: "https://github.com/hanseok0621/Python-Data-Visualization",
@@ -64,7 +64,7 @@ const projects = [
     title: "포트폴리오",
     subtitle: "React Portfolio",
     description:
-      "React와 TypeScript 기반으로 제작한 개인 포트폴리오입니다. 모던한 디자인과 반응형 레이아웃을 통해 개발 역량과 프로젝트를 효과적으로 소개합니다.",
+      "React와 TypeScript 기반으로 제작한 개인 포트폴리오입니다. 모던한 디자인과 반응형 레이아웃을 통해 개발 역량과 프로젝트를 소개합니다.",
     tech: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui"],
     image: "/image/Portfolio.jpg?height=400&width=600",
     codeUrl: "https://github.com/hanseok0621/portfolio",
