@@ -1,5 +1,9 @@
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github } from "lucide-react"
+import { useState } from "react";
+import { Dialog, DialogClose, DialogContent } from "@/components/ui/dialog"; // shadcn/dialog 사용
+import { X } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 const projects = [
   {
@@ -10,6 +14,45 @@ const projects = [
     tech: ["C#", "WinForms"],
     image: "/image/DataProcessingTool.jpg?height=400&width=600",
     codeUrl: "https://github.com/hanseok0621/DataPreprocessingTool",
+    readme: `
+# 데이터 전처리 도구 (C# WinForms)
+
+데이터 분석 및 머신러닝을 위한 전처리 과정을 직관적 UI로 쉽게 처리할 수 있도록 제작된 Windows Forms 기반의 데스크톱 애플리케이션입니다.
+
+---
+## 🛠 개발 기간
+- 2025년 5월 / 총 2주일
+
+## 🧑개발 인원
+- 1명
+
+---
+## ⚙️ 개발환경 및 사용 패키지
+
+- **개발 언어**: C#
+- **플랫폼**: .NET Framework (Windows Forms)
+- **IDE**: Visual Studio
+
+- **CsvHelper**  
+  CSV 파일 로딩 및 저장  
+  👉 https://www.nuget.org/packages/CsvHelper
+
+- **EPPlus**  
+  Excel(.xlsx) 파일 읽기/쓰기  
+  👉 https://www.nuget.org/packages/EPPlus
+
+- **MathNet.Numerics**  
+  평균, 표준편차, IQR 등 통계 계산  
+  👉 https://www.nuget.org/packages/MathNet.Numerics
+  
+---
+## ▶️ 실행 방법
+📦 [다운로드](https://github.com/user-attachments/files/20218098/Release.zip) (압축 해제 후  DataPreprocessingTool.exe 파일 실행) 또는
+1. Visual Studio에서 \`DataPreprocessingTool.sln\` 열기
+2. \`F5\` 또는 \`디버깅 없이 시작(Ctrl+F5)\`로 실행
+3. 상단 버튼을 통해 기능 사용
+    
+    `
   },
   {
     title: "웹 기반 갤러그 게임",
@@ -20,6 +63,7 @@ const projects = [
     image: "/image/DeepSeaInvaders.jpg?height=400&width=600",
     projectUrl: "https://hanseok0621.github.io/DeepSeaInvaders/",
     codeUrl: "https://github.com/hanseok0621/DeepSeaInvaders",
+    readme: `dd`
   },
   {
     title: "영화 정보 웹사이트",
@@ -30,6 +74,7 @@ const projects = [
     image: "/image/CineBox.jpg?height=400&width=600",
     projectUrl: "https://hanseok0621.github.io/CINEBOX/",
     codeUrl: "https://github.com/hanseok0621/CINEBOX",
+    readme: `dd`
   },
   {
     title: "가상회사 HANSUNG 웹페이지",
@@ -40,6 +85,7 @@ const projects = [
     image: "/image/HANSUNG.jpg?height=400&width=600",
     projectUrl: "https://hanseok0621.github.io/HANSUNG/",
     codeUrl: "https://github.com/hanseok0621/HANSUNG",
+    readme: `dd`
   },
   {
     title: "두더지 게임 애플리케이션",
@@ -50,6 +96,7 @@ const projects = [
     image: "/image/MoleGame.jpg?height=400&width=600",
     projectUrl: "https://drive.google.com/file/d/1op5BIuE5MJT-_fJEFNyU7bdXSz4Ky6-p/view?usp=drive_link",
     codeUrl: "https://encouraging-helium-af7.notion.site/Mole-Game-1a076763e8c6805faeb0df658b474804?pvs=74",
+    readme: `dd`
   },
   {
     title: "파이썬 데이터 시각화",
@@ -59,6 +106,7 @@ const projects = [
     tech: ["Python", "Data Analysis"],
     image: "/image/Python.jpg?height=400&width=600",
     codeUrl: "https://github.com/hanseok0621/Python-Data-Visualization",
+    readme: `dd`
   },
   {
     title: "포트폴리오",
@@ -68,10 +116,26 @@ const projects = [
     tech: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui"],
     image: "/image/Portfolio.jpg?height=400&width=600",
     codeUrl: "https://github.com/hanseok0621/portfolio",
+    readme: `dd`
   },
 ]
 
 const Projects = () => {
+  type Project = {
+  title: string;
+  image: string;
+  readme?: string;
+  };
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [open, setOpen] = useState(false);
+
+  const handleImageClick = (project: Project) => {
+    setSelectedProject(project);
+    setOpen(true);
+  };
+
+  const markdown = selectedProject?.readme ?? "# 프로젝트 설명 없음";
+
   return (
     <section className="py-24 bg-gradient-to-br from-stone-50 to-neutral-50">
       <div className="max-w-7xl mx-auto px-6">
@@ -91,12 +155,15 @@ const Projects = () => {
             >
               {/* 프로젝트 이미지 */}
               <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""} group`}>
-                <div className="w-[90%] overflow-hidden shadow-2xl border-0 bg-white group-hover:shadow-3xl transition-all duration-500 rounded-lg">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full max-h-[400px] object-contain mx-auto"
-                />
+                <div
+                  className="w-[90%] overflow-hidden shadow-2xl border-0 bg-white rounded-lg transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl cursor-pointer"
+                  onClick={() => handleImageClick(project)}
+                >
+                  <img
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    className="w-full max-h-[400px] object-contain mx-auto"
+                  />
                 </div>
               </div>
 
@@ -110,7 +177,7 @@ const Projects = () => {
                   <div className="w-16 h-1 bg-gradient-to-r from-stone-300 to-stone-500 rounded-full" />
                 </div>
 
-                <p className="text-stone-600 leading-relaxed text-lg">{project.description}</p>
+                <p className="text-stone-600 leading-relaxed text-lg max-w-prose">{project.description}</p>
 
                 <div className="space-y-3">
                   <h4 className="text-sm font-semibold text-stone-700 uppercase tracking-wider">사용 기술</h4>
@@ -156,6 +223,23 @@ const Projects = () => {
           ))}
         </div>
       </div>
+      
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-6xl w-[90vw] max-h-[90vh] overflow-y-auto">
+          <DialogClose asChild>
+            <button
+              className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center text-3xl text-stone-600 hover:text-stone-900 z-10"
+              aria-label="Close"
+            >
+              <X className="w-8 h-8" />
+              
+            </button>
+          </DialogClose>
+          <div className="prose max-w-none pr-16">
+            <ReactMarkdown>{markdown}</ReactMarkdown>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   )
 }

@@ -17,7 +17,7 @@ function App() {
       <Toaster />
       <div>
         <Navbar />
-        <main className="px-4 w-full">
+        <main className="w-full">
           <section id="home">
             <Home />
           </section>
