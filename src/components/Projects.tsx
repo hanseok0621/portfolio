@@ -4,121 +4,8 @@ import { useState } from "react";
 import { Dialog, DialogClose, DialogContent } from "@/components/ui/dialog"; // shadcn/dialog 사용
 import { X } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-
-const projects = [
-  {
-    title: "데이터 전처리 도구",
-    subtitle: "Data Processing Tool",
-    description:
-      "C# WinForms 기반 데이터 전처리 GUI 툴입니다. 결측치 처리, 이상치 제거, 스케일링, 인코딩, 데이터 분할 기능을 포함하여 복잡한 데이터 작업을 단순화했습니다.",
-    tech: ["C#", "WinForms"],
-    image: "/image/DataProcessingTool.jpg?height=400&width=600",
-    codeUrl: "https://github.com/hanseok0621/DataPreprocessingTool",
-    readme: `
-# 데이터 전처리 도구 (C# WinForms)
-
-데이터 분석 및 머신러닝을 위한 전처리 과정을 직관적 UI로 쉽게 처리할 수 있도록 제작된 Windows Forms 기반의 데스크톱 애플리케이션입니다.
-
----
-## 🛠 개발 기간
-- 2025년 5월 / 총 2주일
-
-## 🧑개발 인원
-- 1명
-
----
-## ⚙️ 개발환경 및 사용 패키지
-
-- **개발 언어**: C#
-- **플랫폼**: .NET Framework (Windows Forms)
-- **IDE**: Visual Studio
-
-- **CsvHelper**  
-  CSV 파일 로딩 및 저장  
-  👉 https://www.nuget.org/packages/CsvHelper
-
-- **EPPlus**  
-  Excel(.xlsx) 파일 읽기/쓰기  
-  👉 https://www.nuget.org/packages/EPPlus
-
-- **MathNet.Numerics**  
-  평균, 표준편차, IQR 등 통계 계산  
-  👉 https://www.nuget.org/packages/MathNet.Numerics
-  
----
-## ▶️ 실행 방법
-📦 [다운로드](https://github.com/user-attachments/files/20218098/Release.zip) (압축 해제 후  DataPreprocessingTool.exe 파일 실행) 또는
-1. Visual Studio에서 \`DataPreprocessingTool.sln\` 열기
-2. \`F5\` 또는 \`디버깅 없이 시작(Ctrl+F5)\`로 실행
-3. 상단 버튼을 통해 기능 사용
-    
-    `
-  },
-  {
-    title: "웹 기반 갤러그 게임",
-    subtitle: "Canvas Game Development",
-    description:
-      "Canvas와 JavaScript를 활용한 잠수함 테마의 슈팅 게임입니다. 다양한 적, 보스전, 사운드, UI 구성을 통해 클래식한 게임을 웹 기술로 재현했습니다.",
-    tech: ["JavaScript", "HTML5", "Canvas"],
-    image: "/image/DeepSeaInvaders.jpg?height=400&width=600",
-    projectUrl: "https://hanseok0621.github.io/DeepSeaInvaders/",
-    codeUrl: "https://github.com/hanseok0621/DeepSeaInvaders",
-    readme: `dd`
-  },
-  {
-    title: "영화 정보 웹사이트",
-    subtitle: "Web Application",
-    description:
-      "TMDb API를 연동한 영화 정보 웹사이트입니다. 검색, 카테고리 필터, 페이지네이션을 지원하며, 사용자가 쉽게 영화 정보를 탐색할 수 있도록 구현했습니다.",
-    tech: ["jQuery", "JavaScript", "REST API", "HTML", "CSS"],
-    image: "/image/CineBox.jpg?height=400&width=600",
-    projectUrl: "https://hanseok0621.github.io/CINEBOX/",
-    codeUrl: "https://github.com/hanseok0621/CINEBOX",
-    readme: `dd`
-  },
-  {
-    title: "가상회사 HANSUNG 웹페이지",
-    subtitle: "Static Website",
-    description:
-      "HTML과 CSS를 기반으로 제작한 가상회사 소개 웹페이지입니다. 깔끔한 디자인과 반응형 레이아웃을 통해 회사의 브랜드 이미지를 효과적으로 전달합니다.",
-    tech: ["HTML", "CSS"],
-    image: "/image/HANSUNG.jpg?height=400&width=600",
-    projectUrl: "https://hanseok0621.github.io/HANSUNG/",
-    codeUrl: "https://github.com/hanseok0621/HANSUNG",
-    readme: `dd`
-  },
-  {
-    title: "두더지 게임 애플리케이션",
-    subtitle: "Mobile Game Development",
-    description:
-      "App Inventor를 활용하여 제작한 안드로이드 게임입니다. 게임플레이와 사용자 경험에 중점을 두어 개발했습니다.",
-    tech: ["App Inventor"],
-    image: "/image/MoleGame.jpg?height=400&width=600",
-    projectUrl: "https://drive.google.com/file/d/1op5BIuE5MJT-_fJEFNyU7bdXSz4Ky6-p/view?usp=drive_link",
-    codeUrl: "https://encouraging-helium-af7.notion.site/Mole-Game-1a076763e8c6805faeb0df658b474804?pvs=74",
-    readme: `dd`
-  },
-  {
-    title: "파이썬 데이터 시각화",
-    subtitle: "Data Visualization",
-    description:
-      "Python을 활용한 제조 시스템 데이터 시각화 프로젝트입니다. 데이터를 직관적인 차트와 그래프로 변환하여 인사이트를 도출할 수 있도록 구현했습니다.",
-    tech: ["Python", "Data Analysis"],
-    image: "/image/Python.jpg?height=400&width=600",
-    codeUrl: "https://github.com/hanseok0621/Python-Data-Visualization",
-    readme: `dd`
-  },
-  {
-    title: "포트폴리오",
-    subtitle: "React Portfolio",
-    description:
-      "React와 TypeScript 기반으로 제작한 개인 포트폴리오입니다. 모던한 디자인과 반응형 레이아웃을 통해 개발 역량과 프로젝트를 소개합니다.",
-    tech: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui"],
-    image: "/image/Portfolio.jpg?height=400&width=600",
-    codeUrl: "https://github.com/hanseok0621/portfolio",
-    readme: `dd`
-  },
-]
+import remarkGfm from "remark-gfm";
+import { projects } from "@/data/projects";
 
 const Projects = () => {
   type Project = {
@@ -224,8 +111,9 @@ const Projects = () => {
         </div>
       </div>
       
+      {/* 모달창 */}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-6xl w-[90vw] max-h-[90vh] overflow-y-auto">
+        <DialogContent className="!max-w-4xl w-[90vw] max-h-[90vh] overflow-y-auto">
           <DialogClose asChild>
             <button
               className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center text-3xl text-stone-600 hover:text-stone-900 z-10"
@@ -235,9 +123,9 @@ const Projects = () => {
               
             </button>
           </DialogClose>
-          <div className="prose max-w-none pr-16">
-            <ReactMarkdown>{markdown}</ReactMarkdown>
-          </div>
+            <div className="prose max-w-none pr-16">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+            </div>
         </DialogContent>
       </Dialog>
     </section>
