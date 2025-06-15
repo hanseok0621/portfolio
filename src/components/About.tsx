@@ -1,5 +1,3 @@
-// src/components/About.tsx
-
 import { User, Monitor } from 'lucide-react';
 
 const skills = [
@@ -13,10 +11,15 @@ const skills = [
   "C",
   "C++",
   "C#",
-  ".NET",
   "WinForms",
+  ".NET",
+  "ASP.NET",
+  "Python",
+  "NumPy",
+  "Pandas",
   "Git",
-  "SQL"
+  "MySQL",
+  "MongoDB"
 ];
 
 const About = () => {
@@ -24,11 +27,11 @@ const About = () => {
     <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-sans font-light text-stone-800 mb-4">About Me</h2>
+          <h2 className="text-4xl md:text-5xl font-sans font-semibold text-stone-800 mb-4">About Me</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-stone-300 to-stone-500 mx-auto rounded-full mb-8" />
           <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
             <strong>산업경영공학</strong>을 전공하며 <strong>산업 공정</strong> 전반과 <strong>제조업</strong>의 생산 시스템을 학습하였고,  
-            이를 통해 <strong>제조 시스템</strong> 구현에 필요한 다양한 기술적 요소들에 관심을 가지게 되었습니다.
+            이를 통해 <strong>제조 시스템</strong> 구현에 필요한 다양한 기술  적 요소들에 관심을 가지게 되었습니다.
             <br /><br />
             특히 <strong>스마트팩토리</strong> 분야에 깊은 흥미가 있으며,
             저의 목표는 산업 공정에 대한 지식과 개발 역량을 융합하여 

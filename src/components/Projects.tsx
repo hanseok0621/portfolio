@@ -27,7 +27,7 @@ const Projects = () => {
     <section className="py-24 bg-gradient-to-br from-stone-50 to-neutral-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-sans font-light text-stone-800 mb-4">Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-sans font-semibold text-stone-800 mb-4">Projects</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-stone-300 to-stone-500 mx-auto rounded-full mb-8" />
           <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
             각각의 프로젝트는 저만의 이야기와 기술적 도전이 담긴 소중한 경험들입니다
